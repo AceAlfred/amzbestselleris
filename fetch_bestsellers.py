@@ -7,18 +7,18 @@ from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor
 import functools
 
-# Define categories and their Amazon.se bestseller URLs
+# Define categories and their Amazon.co.uk bestseller URLs
 CATEGORIES = {
-    "Beauty & Personal Care": "https://www.amazon.se/gp/bestsellers/beauty",
-    "Home & Kitchen": "https://www.amazon.se/gp/bestsellers/kitchen",
-    "Clothing, Shoes & Jewelry": "https://www.amazon.se/gp/bestsellers/fashion",
-    "Electronics": "https://www.amazon.se/gp/bestsellers/electronics",
-    "Toys & Games": "https://www.amazon.se/gp/bestsellers/toys",
-    "Books": "https://www.amazon.se/gp/bestsellers/books",
-    "Sports & Outdoors": "https://www.amazon.se/gp/bestsellers/sports",
-    "Health & Household": "https://www.amazon.se/gp/bestsellers/health",
-    "Tools & Home Improvement": "https://www.amazon.se/gp/bestsellers/industrial",
-    "Pet Supplies": "https://www.amazon.se/gp/bestsellers/pet-supplies"
+    "Beauty & Personal Care": "https://www.amazon.co.uk/gp/bestsellers/beauty",
+    "Home & Kitchen": "https://www.amazon.co.uk/gp/bestsellers/kitchen",
+    "Clothing, Shoes & Jewelry": "https://www.amazon.co.uk/gp/bestsellers/fashion",
+    "Electronics": "https://www.amazon.co.uk/gp/bestsellers/electronics",
+    "Toys & Games": "https://www.amazon.co.uk/gp/bestsellers/toys",
+    "Books": "https://www.amazon.co.uk/gp/bestsellers/books",
+    "Sports & Outdoors": "https://www.amazon.co.uk/gp/bestsellers/sports",
+    "Health & Household": "https://www.amazon.co.uk/gp/bestsellers/health",
+    "Tools & Home Improvement": "https://www.amazon.co.uk/gp/bestsellers/industrial",
+    "Pet Supplies": "https://www.amazon.co.uk/gp/bestsellers/pet-supplies"
 }
 
 ASSOCIATE_TAG = 'amzingis-21'
@@ -84,7 +84,7 @@ def parse_asins_from_html(html_text, limit):
 
 async def fetch_product_basic(session, asin):
     """Async version of fetch_product_basic"""
-    url = f'https://www.amazon.se/dp/{asin}'
+    url = f'https://www.amazon.co.uk/dp/{asin}'
     try:
         async with session.get(url) as response:
             if response.status != 200:
@@ -152,7 +152,7 @@ async def process_category(session, category, url, limit=12):
     return category, products
 
 def build_affiliate_link(asin):
-    return f'https://www.amazon.se/dp/{asin}/?tag={ASSOCIATE_TAG}'
+    return f'https://www.amazon.co.uk/dp/{asin}/?tag={ASSOCIATE_TAG}'
 
 def generate_html(products_by_category, out_path='index.html'):
     """Generate HTML file (fixed the malformed HTML structure)"""
@@ -233,13 +233,13 @@ header {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bästsäljare på Amazon</title>
+    <title>Bestsellers on Amazon</title>
     <style>{css_styles}</style>
 </head>
 <body>
     <header>
-        <h1>Bästsäljare på Amazon</h1>
-        <p>Våra populäraste produkter baserat på försäljning. Uppdateras dagligen.</p>
+        <h1>Bestsellers on Amazon</h1>
+        <p>Our most popular products based on sales. Updated daily.</p>
     </header>
 """)
         
