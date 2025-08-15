@@ -21,7 +21,7 @@ CATEGORIES = {
     "Pet Supplies": "https://www.amazon.se/gp/bestsellers/pet-supplies"
 }
 
-ASSOCIATE_TAG = 'amzing2025-21'
+ASSOCIATE_TAG = 'amzingis-21'
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
                   '(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
