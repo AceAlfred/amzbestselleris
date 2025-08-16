@@ -1,15 +1,15 @@
 name: Update Amazon Bestsellers
 
-on:
-  schedule:
-    - cron: '0 8 * * *'  # run daily at 08:00 UTC
-  workflow_dispatch: {}
+#on:
+#  schedule:
+#    - cron: '0 8 * * *'  # run daily at 08:00 UTC
+ # workflow_dispatch: {}
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+ #   steps:
+    #  - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
